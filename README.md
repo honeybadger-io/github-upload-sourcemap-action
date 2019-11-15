@@ -30,7 +30,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
-    - uses: honeybadger-io/github-notify-deploy-action@master
+    - uses: honeybadger-io/github-upload-sourcemap-action@master
       with:
         api_key: ${{ secrets.HONEYBADGER_API_KEY }}
         minified_url: https://example.com/assets/application.min.js
