@@ -1,0 +1,32 @@
+name: 'Honeybadger Upload Sourcemap Action'
+description: 'Upload a sourcemap to Honeybadger'
+inputs:
+  api_key:
+    description: 'The Honeybadger project API key'
+    required: true
+  minified_url:
+    description: 'The URL of the minified file on your server.'
+  minified_file:
+    description: 'The local path of the unminified javascript file.'
+  source_map:
+    description: 'The local path of the source map.'
+  additional_source_files:
+    default: ""
+    description: |
+      One or more additional source files which may be referenced by your
+      source map. The name should be the URL that would normally be used
+      to access the file, and the value should be the file itself.
+  endpoint:
+    description: 'The source map submission endpoint. Only used for testing'
+    default: "https://api.honeybadger.io/v1/source_maps"
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.api_key }}
+    - ${{ inputs.minified_url }}
+    - ${{ inputs.minified_file }}
+    - ${{ inputs.source_map }}
+    - ${{ inputs.additional_source_files }}
+    - ${{ inputs.endpoint }}
