@@ -12,5 +12,5 @@ curl \
   -F revision=$GITHUB_SHA \
   -F minified_url=$INPUT_MINIFIED_URL \
   -F minified_file=@$INPUT_MINIFIED_FILE \
-  -F source_map=@$INPUT_SOURCE_MAP >> \
+  -F source_map=@$INPUT_SOURCE_MAP \
   $JS_FILES
