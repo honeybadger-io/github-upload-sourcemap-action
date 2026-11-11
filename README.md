@@ -17,6 +17,8 @@ source_map | N/A | Y | The local path of the source map.
 additional_source_files | "" | N |  One or more additional source files which may be referenced by your source map. The name should be the URL that would normally be used to access the file, and the value should be the file itself.
 endpoint | https://api.honeybadger.io/v1/source_maps | N | The source map submission endpoint. Only used for testing
 
+The upload is retried up to 3 times (for up to 2 minutes) if the API is busy or briefly unavailable. If it still fails, or the API rejects it (for example, an invalid API key), the step fails and prints the error.
+
 #### Example
 
 ```yaml
