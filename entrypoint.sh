@@ -8,7 +8,7 @@ fi
 
 # --retry: retry 408, 429, 500, 502, 503, 504 and timeouts, waiting for
 #   Retry-After when the server sends it (otherwise 1s, 2s, 4s).
-# --retry-max-time: don't spend more than 2 minutes retrying.
+# --retry-max-time: don't start a new retry after 2 minutes.
 # --fail-with-body: exit non-zero (failing the step) if the upload still
 #   fails, and print the error response.
 curl \
